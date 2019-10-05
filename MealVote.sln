@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealVoteApi", "MealVoteApi\MealVoteApi.csproj", "{F783DE87-E1B8-4329-9CB9-2A7BE49F268F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MealVote.Api", "MealVoteApi\MealVote.Api.csproj", "{F783DE87-E1B8-4329-9CB9-2A7BE49F268F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealVoteDomain", "MealVoteDomain\MealVoteDomain.csproj", "{5ACF0ADA-5102-4BCF-9235-D56774CBC281}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealVote.Infrastructure", "MealVote.Infrastructure\MealVote.Infrastructure.csproj", "{A0199FA6-C298-40E6-8E05-A2DDA80C9C70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealVote.Domain", "MealVote.Domain\MealVote.Domain.csproj", "{21E5FBE7-7DFD-4E02-A94B-0554BC61E75E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,14 @@ Global
 		{F783DE87-E1B8-4329-9CB9-2A7BE49F268F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F783DE87-E1B8-4329-9CB9-2A7BE49F268F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F783DE87-E1B8-4329-9CB9-2A7BE49F268F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5ACF0ADA-5102-4BCF-9235-D56774CBC281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5ACF0ADA-5102-4BCF-9235-D56774CBC281}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5ACF0ADA-5102-4BCF-9235-D56774CBC281}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5ACF0ADA-5102-4BCF-9235-D56774CBC281}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0199FA6-C298-40E6-8E05-A2DDA80C9C70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0199FA6-C298-40E6-8E05-A2DDA80C9C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0199FA6-C298-40E6-8E05-A2DDA80C9C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0199FA6-C298-40E6-8E05-A2DDA80C9C70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21E5FBE7-7DFD-4E02-A94B-0554BC61E75E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21E5FBE7-7DFD-4E02-A94B-0554BC61E75E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21E5FBE7-7DFD-4E02-A94B-0554BC61E75E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21E5FBE7-7DFD-4E02-A94B-0554BC61E75E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

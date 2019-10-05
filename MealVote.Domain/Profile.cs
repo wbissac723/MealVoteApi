@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 
-namespace MealVoteDomain
+
+namespace MealVote.Domain
 {
     public class Profile
     {

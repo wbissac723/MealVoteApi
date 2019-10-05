@@ -1,4 +1,5 @@
-﻿namespace MealVoteDomain
+﻿
+namespace MealVote.Domain
 {
     public class Restaurant
     {

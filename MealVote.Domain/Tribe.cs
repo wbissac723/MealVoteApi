@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace MealVote.Domain
+{
+    public class Tribe
+    {
+        public string Name { get; set; }
+        public string Leader { get; set; }
+        public List<Profile> Members { get; set; }
+        public DateTime DateCreated { get; set; }
+        public string Location { get; set; }
+        public Restaurant PreviousVisit { get; set; }
+        public List<History> History { get; set; }
+    }
+}

@@ -1,4 +1,5 @@
-﻿namespace MealVoteDomain
+﻿s
+namespace MealVote.Domain
 {
     public class Location
     {
