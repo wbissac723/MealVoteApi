@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MealVote.Domain
 {
     public class Tribe
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Leader { get; set; }
         public List<Profile> Members { get; set; }
