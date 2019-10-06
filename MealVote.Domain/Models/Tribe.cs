@@ -1,11 +1,13 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 
 namespace MealVote.Domain
 {
     public class Tribe
     {
-        public int Id { get; set; }
+        [BsonId]
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Leader { get; set; }
         public List<Profile> Members { get; set; }
