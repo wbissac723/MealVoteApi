@@ -2,7 +2,6 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MealVote.Infrastructure
 {
@@ -27,7 +26,7 @@ namespace MealVote.Infrastructure
         {
             var collection = db.GetCollection<T>(table);
 
-            var result = collection.ReplaceOne(
+            collection.ReplaceOne(
                 new BsonDocument("_id", id),
                 record,
                 new UpdateOptions { IsUpsert = true }
