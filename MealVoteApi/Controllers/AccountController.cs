@@ -2,33 +2,36 @@
 
 using MealVote.Api.Contracts;
 using MealVote.Api.Services;
+using MealVote.Domain;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace MealVote.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
 
-        private readonly AccountService _accountService;
+        private readonly IAccountService _accountService;
 
-        public AccountController(AccountService accountService)
+        public AccountController(IAccountService accountService)
         {
             _accountService = accountService;
         }
 
         [HttpPost]
-        public ActionResult<AccountResponse> CreateAccount(AccountRequest account)
+        public void CreateAccount([FromBody] AccountRequest account)
         {
-            if (account == null)
-            {
-                return NotFound();
-            }
+            //if (account == null)
+            //{
+            //    return BadRequest();
+            //}
 
-            var response = new AccountResponse { Message = "Account successfully created"};
+            _accountService.CreateAccount(account);
 
-            return Ok(response);
+
+            //return Ok(response);
 
         }
     }

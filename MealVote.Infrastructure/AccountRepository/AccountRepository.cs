@@ -13,7 +13,7 @@ namespace MealVote.Infrastructure
         private const string connectionString = "mongodb://localhost:27017";
 
 
-        public AccountRepository(DatabaseSettings settings)
+        public AccountRepository()
         {
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase(databaseName);
@@ -40,6 +40,14 @@ namespace MealVote.Infrastructure
             throw new NotImplementedException();
         }
 
+        bool IAccountRepository.Login(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
 
+        bool IAccountRepository.Delete(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace MealVoteApi
         public void ConfigureServices(IServiceCollection services)
         {
             
-            services.AddSingleton<AccountService>();
+            services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IProfileRepository, ProfileRepository>();
 
