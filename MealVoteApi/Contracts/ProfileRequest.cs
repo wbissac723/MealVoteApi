@@ -1,14 +1,13 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using MealVote.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-
-namespace MealVote.Domain
+namespace MealVote.Api.Contracts
 {
-    public class Profile
+    public class ProfileRequest
     {
-        [BsonId]
-        public Guid Id { get; set; }
         public string UserName { get; set; }
         public string AvatarUrl { get; set; } = "";
         public Restaurant FavoriteSpot { get; set; } = null;

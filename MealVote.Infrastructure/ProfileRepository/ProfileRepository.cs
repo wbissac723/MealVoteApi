@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Threading.Tasks;
 using MealVote.Domain;
 using MongoDB.Driver;
 
@@ -21,9 +22,21 @@ namespace MealVote.Infrastructure
             _profiles = database.GetCollection<Profile>(collection);
         }
 
-        public void Create(Profile profile)
+        public async Task<bool> Create(Profile profile)
         {
-            throw new NotImplementedException();
+            bool success = false;
+
+            try
+            {
+                await _profiles.InsertOneAsync(profile);
+                success = true;
+            } 
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            return success;
         }
 
         public void Delete(Guid id)

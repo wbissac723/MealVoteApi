@@ -1,4 +1,5 @@
 
+using MealVote.Api.Controllers;
 using MealVote.Api.Services;
 using MealVote.Infrastructure;
 using Microsoft.AspNetCore.Builder;
@@ -24,6 +25,7 @@ namespace MealVoteApi
         {
             
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IProfileService, ProfileService>();
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IProfileRepository, ProfileRepository>();
 
@@ -49,4 +51,5 @@ namespace MealVoteApi
             });
         }
     }
+
 }

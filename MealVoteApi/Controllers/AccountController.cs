@@ -4,7 +4,7 @@ using MealVote.Api.Contracts;
 using MealVote.Api.Services;
 using MealVote.Domain;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
+
 
 namespace MealVote.Api.Controllers
 {
@@ -21,18 +21,16 @@ namespace MealVote.Api.Controllers
         }
 
         [HttpPost]
-        public void CreateAccount([FromBody] AccountRequest account)
+        public ActionResult CreateAccount([FromBody] AccountRequest request)
         {
-            //if (account == null)
-            //{
-            //    return BadRequest();
-            //}
+            if (request == null)
+            {
+                return BadRequest();
+            }
 
-            _accountService.CreateAccount(account);
+            var result = _accountService.CreateAccount(request);
 
-
-            //return Ok(response);
-
+            return Ok(result);
         }
     }
 }

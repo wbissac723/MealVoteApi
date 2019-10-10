@@ -2,6 +2,7 @@
 using MealVote.Domain;
 using MongoDB.Driver;
 using System;
+using System.Threading.Tasks;
 
 namespace MealVote.Infrastructure
 {
@@ -21,13 +22,16 @@ namespace MealVote.Infrastructure
             _accounts = database.GetCollection<Account>(collection);
         }
 
-        public bool Create(Account account)
+        public async Task Create(Account account)
         {
-            var success = false;
-
-            _accounts.InsertOne(account);
-
-            return success;
+            try
+            {
+                await _accounts.InsertOneAsync(account);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public void Delete(Guid id)

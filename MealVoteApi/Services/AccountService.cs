@@ -4,6 +4,7 @@ using MealVote.Api.Contracts;
 using MealVote.Domain;
 using MealVote.Infrastructure;
 using System;
+using System.Threading.Tasks;
 
 namespace MealVote.Api.Services
 {
@@ -16,10 +17,8 @@ namespace MealVote.Api.Services
             _repository = repository;
         }
 
-        public bool CreateAccount(AccountRequest request)
+        public async Task CreateAccount(AccountRequest request)
         {
-            var success = false;
-
             var account = new Account
             {
                 Id = new Guid(),
@@ -29,9 +28,7 @@ namespace MealVote.Api.Services
                 AccountCreatedDate = DateTime.Now
             };
 
-            _repository.Create(account);
-
-            return success;
+              await _repository.Create(account);
         }
     }
 }
