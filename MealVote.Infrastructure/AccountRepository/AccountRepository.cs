@@ -9,28 +9,57 @@ namespace MealVote.Infrastructure
     public class AccountRepository : IAccountRepository
     {
         private readonly IMongoCollection<Account> _accounts;
+        private readonly IMongoCollection<Profile> _profiles;
+        
         private const string databaseName = "MealVote";
-        private const string collection = "Accounts";
+        private const string accountCollection = "Accounts";
+        private const string profileCollection = "Profiles";
         private const string connectionString = "mongodb://localhost:27017";
+
+        private readonly MongoClient _client;
+        private readonly IMongoDatabase _database;
 
 
         public AccountRepository()
         {
-            var client = new MongoClient(connectionString);
-            var database = client.GetDatabase(databaseName);
+            _client = new MongoClient(connectionString);
+            _database = _client.GetDatabase(databaseName);
 
-            _accounts = database.GetCollection<Account>(collection);
+            _accounts = _database.GetCollection<Account>(accountCollection);
+            _profiles = _database.GetCollection<Profile>(profileCollection);
         }
 
         public async Task Create(Account account)
         {
-            try
+            var profile = new Profile
+            { 
+                UserName = account.UserName,
+                Id = account.Id
+            };
+
+
+            // Create a session object that is used when leveraging transactions
+            using (var session = await _client.StartSessionAsync())
             {
-                await _accounts.InsertOneAsync(account);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
+
+                // Begin transaction
+                session.StartTransaction();
+
+                try
+                {
+                    await _accounts.InsertOneAsync(account);
+                    await _profiles.InsertOneAsync(profile);
+
+                    // Commit transaction after both succesfully database inserts
+                    await session.CommitTransactionAsync();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error writing to MongoDB: " + e);
+
+                    // Cancel the transaction
+                    await session.AbortTransactionAsync();
+                }
             }
         }
 
