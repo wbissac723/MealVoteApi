@@ -1,6 +1,5 @@
 ﻿using MealVote.Api.Contracts;
 using MealVote.Api.Services;
-using MealVote.Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

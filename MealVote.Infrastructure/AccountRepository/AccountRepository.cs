@@ -11,10 +11,10 @@ namespace MealVote.Infrastructure
         private readonly IMongoCollection<Account> _accounts;
         private readonly IMongoCollection<Profile> _profiles;
         
-        private const string databaseName = "MealVote";
+        private const string databaseName = "mealvote";
         private const string accountCollection = "Accounts";
         private const string profileCollection = "Profiles";
-        private const string connectionString = "mongodb://localhost:27017";
+        private const string connectionString = "mongodb://tempdevuser:abcd1234@ds139295.mlab.com:39295/meal-vote";
 
         private readonly MongoClient _client;
         private readonly IMongoDatabase _database;
